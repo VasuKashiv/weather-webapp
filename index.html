@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/71ca83a211.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Weather</title>
+  </head>
+  <body>
+    <main class="main">
+      <section class="info-sect">
+        <span class="logo">the.weather</span>
+        <div class="info">
+          <span id="temperature-degree"></span>
+          <div>
+            <div id="location-name" class="city-name"></div>
+            <div class="date">10:36-Tuesday,22 Oct '19</div>
+          </div>
+
+          <div class="weath-icon">
+            <div id="location-icon"></div>
+            <span id="temperature-description"></span>
+          </div>
+        </div>
+      </section>
+      <section class="side-sect">
+        <div class="search-div">
+          <div class="search-box">
+            <input
+              class="search-bar"
+              type="search"
+              placeholder="Another Location"
+            />
+            <div class="deco-div">
+              <i class="fa-solid fa-search fa-2x style-icon"></i>
+            </div>
+          </div>
+          <div class="suggestion">
+            <span>New Delhi,India</span>
+            <span>Kolkata,India</span>
+            <span>Mumbai,India</span>
+          </div>
+        </div>
+        <div class="weath-details">
+          <span class="weath-head">Weather Details </span>
+          <div class="details">
+            <table>
+              <thead>
+                <tr>
+                  <td>Clouds</td>
+                  <td id="cloud"></td>
+                </tr>
+              </thead>
+              <tr>
+                <td>Humidity</td>
+                <td id="humid"></td>
+              </tr>
+              <tr>
+                <td>Wind</td>
+                <td id="wind_speed"></td>
+              </tr>
+              <tr>
+                <td>Pressure</td>
+                <td id="pressure"></td>
+              </tr>
+              <tr>
+                <td>Rain</td>
+                <td id="rain"></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script rel="text/javascript" src="script.js"></script>
+  </body>
+</html>

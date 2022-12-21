@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: sans-serif;
+}
+.main {
+  background-image: url("assets/istockphoto-182355595-612x612.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+}
+
+.info-sect {
+  height: 100%;
+  width: 60%;
+}
+
+.side-sect {
+  height: 100%;
+  background-image: linear-gradient(
+    180deg,
+    rgba(24, 24, 24, 0.715) 60%,
+    rgba(50, 50, 50, 0.715)
+  );
+  /* background-color: rgba(41, 41, 41, 0.715); */
+  width: 40%;
+  display: block;
+}
+.search-div {
+  margin-left: 5vw;
+  position: relative;
+}
+.search-box {
+  display: flex;
+  justify-content: space-between;
+}
+.deco-div {
+  height: 100px;
+  width: 100px;
+  background-color: #aacde1;
+}
+.style-icon {
+  padding: 40px;
+}
+.search-bar {
+  margin-top: 80px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  width: 70%;
+  font-size: 20px;
+  color: white;
+}
+.search-bar::placeholder {
+  font-size: 20px;
+  color: rgba(232, 232, 232, 0.868);
+}
+.search-bar:focus {
+  outline: none;
+}
+.search-bar.suggestion {
+  margin-top: 50px;
+  /* position: relative; */
+}
+.suggestion span {
+  display: block;
+  margin-top: 25px;
+  margin-right: 20px;
+  color: white;
+  font-size: 15px;
+}
+.search-div::after {
+  content: "";
+  border-bottom: 2px solid rgb(211, 211, 211);
+  opacity: 0.7;
+  width: 90%;
+  position: absolute;
+  bottom: -50px;
+}
+.weath-details {
+  margin-left: 5vw;
+  margin-top: 100px;
+}
+.weath-head {
+  font-size: 20px;
+  color: white;
+}
+.details {
+  margin-top: 40px;
+  color: white;
+  font-size: 20px;
+  width: 90%;
+}
+table {
+  table-layout: fixed;
+  color: rgba(232, 232, 232, 0.868);
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0px 20px;
+}
+thead td:nth-child(1) {
+  width: 70%;
+}
+
+.info {
+  margin-left: 10%;
+  margin-top: 45%;
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.info > span {
+  font-size: 100px;
+  font-weight: 500;
+  color: white;
+  letter-spacing: 0.2rem;
+}
+.city-name {
+  font-size: 60px;
+  font-weight: 500;
+  color: white;
+  letter-spacing: 0.2rem;
+}
+.date {
+  font-size: 20px;
+  color: white;
+  font-weight: lighter;
+
+  letter-spacing: 0.1rem;
+}
+.weath-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.weath-icon span {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+}
+.logo {
+  font-size: 20px;
+  color: rgb(236, 234, 234);
+  font-weight: 500;
+  margin-left: 10%;
+}
