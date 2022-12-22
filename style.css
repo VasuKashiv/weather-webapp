@@ -6,10 +6,6 @@ body {
   font-family: sans-serif;
 }
 .main {
-  background-image: url("assets/istockphoto-182355595-612x612.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
   height: 100vh;
   width: 100%;
   display: flex;

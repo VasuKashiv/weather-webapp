@@ -1,12 +1,6 @@
 window.addEventListener("load", () => {
   let long;
   let lat;
-  // let temperatureDescription = document.querySelector(
-  //   ".temperature-description"
-  // );
-  // let temperatureDegree = document.querySelector(".temperature-degree");
-  // let locationName = document.querySelector(".location-name");
-  // let locationIcon = document.querySelector(".weather-icon");
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(async (position) => {
@@ -16,36 +10,12 @@ window.addEventListener("load", () => {
       const api_key = "343a782515d202a08dd1c2993c8fa87b";
       const api_url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=${api_key}`;
 
-      // fetch(api)
-      //   .then((response) => {
-      //     return response.json();
-      //   })
-      //   .then((data) => {
-      //     console.log(data);
-
-      //     const { feels_like } = data.main;
-
-      //     const { main } = data.weather[0];
-
-      //     const { icon } = data.weather[0];
-      //     const { wind_speed } = data.wind;
-      //     const { cloud } = data.clouds;
-      //     const { rain } = data.rain;
-      //     const loc_name = data.name;
-      //     const icn = `http://openweathermap.org/img/wn//${icon}@2x.png`;
-
-      //     temperatureDegree.textContent = parseInt(feels_like) + "°";
-      //     temperatureDescription.textContent = main;
-      //     locationName.textContent = loc_name;
-      //     // locationIcon.innerHTML = `<img src="icons/${icon}.png">`;
-      //     locationIcon.textContent = icn;
-      //   });
       const response = await fetch(api_url);
 
       const data = await response.json();
 
       let { feels_like, pressure, humidity } = data.main;
-      let { main, icon } = data.weather[0];
+      let { id, main, icon } = data.weather[0];
       let { speed } = data.wind;
       let { all } = data.clouds;
       let loc_name = data.name;
@@ -54,6 +24,78 @@ window.addEventListener("load", () => {
         parseInt(feels_like) + "°";
       document.getElementById("location-name").textContent = loc_name;
 
+      if (icon === "01d" || icon === "01n") {
+        document.body.style.backgroundImage =
+          "url('assets/istockphoto-182355595-612x612.jpg')";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundAttachment = "fixed";
+        document.body.style.backgroundSize = "cover";
+      }
+      if (
+        icon === "02d" ||
+        icon === "02n" ||
+        icon === "03d" ||
+        icon === "03n" ||
+        icon === "04d" ||
+        icon === "04n" ||
+        icon === "11d" ||
+        icon === "11n"
+      ) {
+        document.body.style.backgroundImage =
+          "url('assets/istockphoto-1005526768-612x612.jpg')";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundAttachment = "fixed";
+        document.body.style.backgroundSize = "cover";
+      }
+      if (icon === "13d" || icon === "13n") {
+        document.body.style.backgroundImage =
+          "url('assets/28265-nature-landscapes-trees-forest-winter-snow-snowing-flakes-748x468.jpg')";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundAttachment = "fixed";
+        document.body.style.backgroundSize = "cover";
+      }
+
+      if (
+        icon === "10d" ||
+        icon === "10n" ||
+        icon === "09d" ||
+        icon === "09n"
+      ) {
+        document.body.style.backgroundImage =
+          "url('assets/rain-drops-on-window-1827098_1920.webp')";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundAttachment = "fixed";
+        document.body.style.backgroundSize = "cover";
+      }
+
+      if (id === "701" || id === "721" || id === "741") {
+        document.body.style.backgroundImage =
+          "url('assets/JFDZ7U577FFBTCTSLUKDQDSAYQ.png')";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundAttachment = "fixed";
+        document.body.style.backgroundSize = "cover";
+      }
+      if (id === "711" || id === "731" || id === "761") {
+        document.body.style.backgroundImage =
+          "url('assets/industrial_landscape_clouds_smoke_sepia-246542.jpg!d')";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundAttachment = "fixed";
+        document.body.style.backgroundSize = "cover";
+      }
+      if (id === "751" || id === "762" || id === "771") {
+        document.body.style.backgroundImage =
+          "url('assets/istockphoto-1357017951-170667a.jpg')";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundAttachment = "fixed";
+        document.body.style.backgroundSize = "cover";
+      }
+      if (id === "781") {
+        document.body.style.backgroundImage =
+          "url('assets/Generic-thunderstorm.webp')";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundAttachment = "fixed";
+        document.body.style.backgroundSize = "cover";
+      }
       document.getElementById(
         "location-icon"
       ).innerHTML = `<img src="http://openweathermap.org/img/wn//${icon}@2x.png" style="height:60px;width:60px;">`;
@@ -64,7 +106,6 @@ window.addEventListener("load", () => {
         parseInt(speed) + " km/h";
       document.getElementById("pressure").innerHTML = pressure + " bars";
       // document.getElementById("rain").textContent ='1h' + " mm";
-      //  locationIcon.innerHTML = `<img src="icons/${icon}.png">`;
     });
   }
 });
