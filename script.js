@@ -1,3 +1,4 @@
+const loaderContainer = document.querySelector(".loader-container");
 window.addEventListener("load", () => {
   let long;
   let lat;
@@ -6,7 +7,7 @@ window.addEventListener("load", () => {
     navigator.geolocation.getCurrentPosition(async (position) => {
       long = position.coords.longitude;
       lat = position.coords.latitude;
-
+      loaderContainer.style.display = "none";
       const api_key = "343a782515d202a08dd1c2993c8fa87b";
       const api_url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=${api_key}`;
 
