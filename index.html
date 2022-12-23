@@ -18,11 +18,27 @@
     <main class="main">
       <section class="info-sect">
         <span class="logo">the.weather</span>
+        <!-- <div class="bigbox position">
+          <div class="clock-ctn position">
+            <div class="markers position cardinal" id="m-12-6"></div>
+            <div class="markers position" id="m-1-7"></div>
+            <div class="markers position" id="m-2-8"></div>
+            <div class="markers position cardinal" id="m-3-9"></div>
+            <div class="markers position" id="m-4-10"></div>
+            <div class="markers position" id="m-5-11"></div>
+            <div class="clock-face position">
+              <div class="clock-hand position hour"></div>
+              <div class="clock-hand position minute"></div>
+              <div class="clock-hand position second"></div>
+              <div class="dot position"></div>
+            </div>
+          </div>
+        </div> -->
         <div class="info">
           <span id="temperature-degree"></span>
           <div>
             <div id="location-name" class="city-name"></div>
-            <div class="date">10:36-Tuesday,22 Oct '19</div>
+            <div id="date"></div>
           </div>
 
           <div class="weath-icon">
@@ -35,19 +51,21 @@
         <div class="search-div">
           <div class="search-box">
             <input
+              id="search-bar"
               class="search-bar"
               type="search"
               placeholder="Another Location"
+              onkeyup="search_location()"
             />
             <div class="deco-div">
               <i class="fa-solid fa-search fa-2x style-icon"></i>
             </div>
           </div>
-          <div class="suggestion">
-            <span>New Delhi,India</span>
-            <span>Kolkata,India</span>
-            <span>Mumbai,India</span>
-          </div>
+          <ul class="suggestion">
+            <li class="location">New Delhi,India</li>
+            <li class="location">Kolkata,India</li>
+            <li class="location">Mumbai,India</li>
+          </ul>
         </div>
         <div class="weath-details">
           <span class="weath-head">Weather Details </span>
@@ -72,8 +90,8 @@
                 <td id="pressure"></td>
               </tr>
               <tr>
-                <td>Rain</td>
-                <td id="rain"></td>
+                <td>Visibility</td>
+                <td id="visibility"></td>
               </tr>
             </table>
           </div>

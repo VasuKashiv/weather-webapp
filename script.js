@@ -7,20 +7,21 @@ window.addEventListener("load", () => {
     navigator.geolocation.getCurrentPosition(async (position) => {
       long = position.coords.longitude;
       lat = position.coords.latitude;
-      loaderContainer.style.display = "none";
+
       const api_key = "343a782515d202a08dd1c2993c8fa87b";
       const api_url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=${api_key}`;
 
       const response = await fetch(api_url);
 
       const data = await response.json();
-
+      loaderContainer.style.display = "none";
       let { feels_like, pressure, humidity } = data.main;
       let { id, main, icon } = data.weather[0];
       let { speed } = data.wind;
       let { all } = data.clouds;
       let loc_name = data.name;
-      // let { '1h' } = data.rain;
+      let visible = data.visibility;
+
       document.getElementById("temperature-degree").textContent =
         parseInt(feels_like) + "°";
       document.getElementById("location-name").textContent = loc_name;
@@ -106,7 +107,98 @@ window.addEventListener("load", () => {
       document.getElementById("wind_speed").innerHTML =
         parseInt(speed) + " km/h";
       document.getElementById("pressure").innerHTML = pressure + " bars";
-      // document.getElementById("rain").textContent ='1h' + " mm";
+      document.getElementById("visibility").textContent =
+        parseInt(visible / 1000) + "km";
+      const weekday = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      const month = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+      /*clock and date*/
+      var date = new Date();
+      var currentHour = date.getHours();
+      var currentMinute = date.getMinutes();
+      var currentSecond = date.getSeconds();
+      var secondHand = document.querySelector(".second");
+      var minuteHand = document.querySelector(".minute");
+      var hourHand = document.querySelector(".hour");
+      var currentDay = date.getDay();
+      var currentDate = date.getDate();
+      var currentMonth = date.getMonth();
+      var currentYear = date.getFullYear().toString().slice(2);
+
+      var dte =
+        currentHour +
+        ":" +
+        currentMinute +
+        "-" +
+        weekday[currentDay] +
+        "," +
+        currentDate +
+        " " +
+        month[currentMonth] +
+        " '" +
+        currentYear;
+
+      document.getElementById("date").innerHTML = dte;
+      // var x = currentSecond * 6;
+      // var y = currentMinute * 6 + (6 / 60) * currentSecond;
+      // var z =
+      //   currentHour * 30 +
+      //   ((30 / 60) * currentMinute + (30 / 60 / 60) * currentSecond);
+      // 'x' is the degree value of the secondHand 'Transform[Rotate]'
+      // 'y' is the degree value of the minuteHand 'Transform[Rotate]'
+      // 'z' is the degree value of the hourHand 'Transform[Rotate]'
+      // setInterval(function () {
+      //   x += 6 / 100;
+      //   y += 6 / 100 / 60;
+      //   z += 6 / 100 / 60 / 12;
+      //   secondHand.style.transform = "rotate(" + x + "deg)";
+      //   minuteHand.style.transform = "rotate(" + y + "deg)";
+      //   hourHand.style.transform = "rotate(" + z + "deg)";
+      // }, 10);
+      // window.addEventListener("focus", function () {
+      //   window.location.reload();
+      // });
     });
   }
 });
+function search_location() {
+  let input = document.getElementById("search-bar").value.toLowerCase();
+  let x = document.getElementsByClassName("location");
+
+  for (var i = 0; i < x.length; i++) {
+    if (!x[i].innerHTML.toLowerCase().includes(input)) {
+      x[i].style.display = "none";
+    } else {
+      x[i].style.display = "list-style";
+    }
+  }
+}
+// function clearSearch() {
+//   let clear = document.querySelector(
+//     ".search-bar::-webkit-search-cancel-button"
+//   );
+
+//   clear.addEventListener("click", () => {
+//     window.addEventListener("load", () => {});
+//   });
+// }

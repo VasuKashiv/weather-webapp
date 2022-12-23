@@ -6,13 +6,16 @@
   width: 100%;
   height: 100vh;
   position: fixed;
-  background: #000
+  background: rgba(0, 0, 0, 0.715)
     url("https://media.giphy.com/media/8agqybiK5LW8qrG3vJ/giphy.gif") center
     no-repeat;
   z-index: 1;
 }
 body {
   font-family: sans-serif;
+  background-image: url("assets/istockphoto-182355595-612x612.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .main {
@@ -27,7 +30,7 @@ body {
 }
 
 .side-sect {
-  height: 100%;
+  height: 100vh;
   background-image: linear-gradient(
     180deg,
     rgba(24, 24, 24, 0.715) 60%,
@@ -73,7 +76,14 @@ body {
   margin-top: 50px;
   /* position: relative; */
 }
-.suggestion span {
+#casMicLayer {
+  display: none;
+}
+/* .search-bar::-webkit-search-cancel-button {
+  position: relative;
+  right: 10px;
+} */
+.suggestion li {
   display: block;
   margin-top: 25px;
   margin-right: 20px;
@@ -115,11 +125,11 @@ thead td:nth-child(1) {
 
 .info {
   margin-left: 10%;
-  margin-top: 45%;
+  margin-top: 45vh;
   width: 70%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 .info > span {
@@ -134,7 +144,7 @@ thead td:nth-child(1) {
   color: white;
   letter-spacing: 0.2rem;
 }
-.date {
+#date {
   font-size: 20px;
   color: white;
   font-weight: lighter;
@@ -154,7 +164,97 @@ thead td:nth-child(1) {
 }
 .logo {
   font-size: 20px;
-  color: rgb(236, 234, 234);
+  color: rgb(255, 255, 255);
   font-weight: 500;
   margin-left: 10%;
+}
+/*styling clock*/
+.position {
+  aspect-ratio: 1 / 1;
+  position: absolute;
+  inset: 0.1px;
+  margin: auto;
+}
+.bigbox {
+  position: fixed;
+  width: 30%;
+}
+.clock-ctn {
+  background: darkblue;
+  width: 90%;
+  border-radius: 50%;
+  box-shadow: 0em 1em 6em 0em #000000a3;
+}
+.markers {
+  width: 2%;
+  aspect-ratio: 1 / 45;
+  border-radius: 30%;
+  background: #ffffff90;
+}
+.cardinal {
+  background: #ff5733;
+  width: 4%;
+  aspect-ratio: 2 / 45;
+}
+#m-3-9 {
+  transform: rotate(90deg);
+}
+#m-1-7 {
+  transform: rotate(30deg);
+}
+#m-2-8 {
+  transform: rotate(60deg);
+}
+#m-4-10 {
+  transform: rotate(-30deg);
+}
+#m-5-11 {
+  transform: rotate(-60deg);
+}
+.clock-face {
+  background: darkblue;
+  width: 75%;
+  border-radius: 50%;
+}
+.clock-hand {
+  border-radius: 2em;
+  background: linear-gradient(#ff5733 50%, transparent 50%);
+}
+.hour {
+  width: 3%;
+  aspect-ratio: 1 / 25;
+}
+.minute {
+  width: 2%;
+  aspect-ratio: 1 / 45;
+}
+.second {
+  width: 0.5%;
+  aspect-ratio: 1 / 192;
+  background: linear-gradient(red 50%, transparent 50%);
+}
+.dot {
+  width: 7%;
+  border-radius: 50%;
+  background: #fff;
+}
+p {
+  color: darkblue;
+  font-size: 1rem;
+  text-align: center;
+  width: 70%;
+  position: absolute;
+  bottom: 11%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.ref {
+  font-size: 0.7em;
+  bottom: 4%;
+  color: #ffffff89;
+}
+a {
+  text-decoration: 0.1em darkblue underline;
+  color: darkblue;
 }
